@@ -1,7 +1,10 @@
 <script>
 	import Header from './Header.svelte';
 	import './styles.css';
-</script>
+//The context API provides a mechanism for components to 'talk' to each other without passing around data and functions as props, or dispatching lots of events. It's an advanced feature, but a useful one.
+
+  </script>
+
 
 <div class="app">
 	<Header />
@@ -11,7 +14,7 @@
 	</main>
 
 	<footer>
-		<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
+		<p><!--visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit--></p>
 	</footer>
 </div>
 

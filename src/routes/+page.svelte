@@ -2,6 +2,12 @@
 	import Counter from './Counter.svelte';
 	import welcome from '$lib/images/svelte-welcome.webp';
 	import welcome_fallback from '$lib/images/svelte-welcome.png';
+
+	//data - bound to layout.server.ts and page.ts load function output 
+	export let data;
+	//const products = data.poduct; //same as below 
+	const { products, users } = data; //from page.ts
+	const { visited, vtime } = data; //from layout.server.ts
 </script>
 
 <svelte:head>
@@ -9,6 +15,15 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
+
+{#each products as product}
+	<h2>{product.title}</h2>
+{/each}
+{#each users as user}
+	<h2>{user.firstName}</h2>
+{/each}
+<h1>Hello {data.visited ? 'friend' : 'stranger'}!</h1>
+<p>at : {data.vtime}</p>
 <section>
 	<h1>
 		<span class="welcome">
@@ -17,13 +32,10 @@
 				<img src={welcome_fallback} alt="Welcome" />
 			</picture>
 		</span>
-
 		to your new<br />SvelteKit app
 	</h1>
-
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
+	<a href="/protected">protected route</a>
+	<a href="/login">login route</a>
 
 	<Counter />
 </section>
