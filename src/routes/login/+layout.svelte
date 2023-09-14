@@ -2,8 +2,8 @@
 	import { page } from '$app/stores';
 </script>
 
-{#if $page.data.session}
-<p>protected content</p>
+{#if $page.data.session?.user}
+<p>protected content only shows if $page.data.session</p>
 {/if}
 <div class="layout"><p>just next to layout div</p>
 	<slot />

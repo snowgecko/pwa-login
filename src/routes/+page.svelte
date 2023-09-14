@@ -3,6 +3,8 @@
 	import welcome from '$lib/images/svelte-welcome.webp';
 	import welcome_fallback from '$lib/images/svelte-welcome.png';
 
+	import { user } from '$lib/store'
+	
 	//data - bound to layout.server.ts and page.ts load function output 
 	export let data;
 	//const products = data.poduct; //same as below 
@@ -14,6 +16,10 @@
 	<title>Home</title>
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
+
+<h1>Public</h1>
+<a href='/protected'>protected route</a>
+<a href="/login">login route</a>
 
 
 {#each products as product}
@@ -34,9 +40,6 @@
 		</span>
 		to your new<br />SvelteKit app
 	</h1>
-	<a href="/protected">protected route</a>
-	<a href="/login">login route</a>
-
 	<Counter />
 </section>
 

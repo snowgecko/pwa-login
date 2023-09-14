@@ -1,15 +1,18 @@
-<script>
+<script lang="ts">
 	import { signIn, signOut } from '@auth/sveltekit/client';
-	import { page } from '$app/stores';
 	import logo from '$lib/assets/logo.png';
 	import Google from '$lib/components/icon/Google.svelte';
 
+	//import { page } from '$app/stores';
+
+	export let data; //brings in data from server.js behind.
+
 	let email = '';
-
 	const handleEmailSignIn = () => {
-		signIn('email', { email, callbackUrl: '/protected' });
+    	signIn('email', { email, callbackUrl: '/protected' });
+    	//	user.update((u) => u = JSON.stringify({ email: "testing", password: "testing" })) - doesn't like being here.
 	};
-
+	//
 	const handleGoogleSignIn = () => {
 		signIn('google', { callbackUrl: '/protected' });
 	};
@@ -20,7 +23,8 @@
 </script>
 
 <div class="container">
-	{#if !$page.data.session}
+	
+	{#if !data.session.user.name }
 		<img src={logo} alt="auth.js logo" class="logo" />
 		<h1 class="welcome">Welcome</h1>
 		<p class="text">Log in to continue to SvelteKit Auth Example</p>
@@ -41,7 +45,7 @@
 		</button>
 	{/if}
 
-	{#if $page.data.session}
+	{#if data.session.user.name}
 		<div class="signout-container">
 			<img src={logo} alt="auth.js logo" class="logo" />
 
