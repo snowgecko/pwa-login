@@ -3,6 +3,7 @@
 //It's strongly recommended that you explicitly configure the path when setting a cookie, since browsers' default behaviour — somewhat uselessly — is to set the cookie on the parent of the current path.
 //page.js - will run on server and the browser
 //page.server.js - only run on the server in which you can access private env variables etc. 
+export const prerender = true;
 
 import { now } from 'svelte/internal';
 

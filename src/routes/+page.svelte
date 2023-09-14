@@ -1,5 +1,6 @@
 <script>
-	import Counter from './Counter.svelte';
+    import { base } from '$app/paths';
+	//import Counter from './Counter.svelte';
 	import welcome from '$lib/images/svelte-welcome.webp';
 	import welcome_fallback from '$lib/images/svelte-welcome.png';
 
@@ -18,8 +19,8 @@
 </svelte:head>
 
 <h1>Public</h1>
-<a href='/protected'>protected route</a>
-<a href="/login">login route</a>
+<!--<a href='{base}/protected'>protected route</a>
+<a href="{base}/login">login route</a>-->
 
 
 {#each products as product}
@@ -40,7 +41,7 @@
 		</span>
 		to your new<br />SvelteKit app
 	</h1>
-	<Counter />
+	<!--<Counter />-->
 </section>
 
 <style>
